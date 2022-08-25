@@ -12,7 +12,7 @@ def main():
 
     for i in range(1, argc + 1):
         sm += int(argv[i])
-    
+
     print("{}".format(sm))
 
 
