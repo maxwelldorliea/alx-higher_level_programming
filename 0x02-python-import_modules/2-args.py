@@ -6,7 +6,7 @@ def main():
     argc = len(argv) - 1
 
     if argc == 0:
-        print("{} arguments:".format(argc))
+        print("{} arguments.".format(argc))
         return
     if argc == 1:
         print("{} argument:".format(argc))
