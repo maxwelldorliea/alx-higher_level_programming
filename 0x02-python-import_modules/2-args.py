@@ -16,7 +16,7 @@ def main():
     print("{} arguments:".format(argc))
 
     for i in range(1, argc + 1):
-        print("{}: {}".format(argc, argv[i]))
+        print("{}: {}".format(i, argv[i]))
 
 
 if __name__ == "__main__":
