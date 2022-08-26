@@ -6,8 +6,8 @@ from sys import argv
 def main():
     argc = len(argv) - 1
 
-    if argc == 0:
-        print("Usage: {} <a> <operator> <b>".format(argv[argc]))
+    if argc != 4:
+        print("Usage: {} <a> <operator> <b>".format(argv[0]))
         exit(1)
 
     a = int(argv[1])
