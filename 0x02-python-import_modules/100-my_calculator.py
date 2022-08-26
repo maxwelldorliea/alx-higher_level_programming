@@ -7,20 +7,26 @@ def main():
     argc = len(argv) - 1
 
     if argc == 0:
-        print("{}".format(argc))
-        return
+        print("Usage: {} <a> <operator> <b>".format(argv[argc]))
+        exit(1)
+
+    a = int(argv[1])
+    b = int(argv[3])
 
     if argv[2] == "+":
-        print("{} + {} = {}".format(argv[1], argv[3], add(int(argv[1]), int(argv[3]))))
+        print("{} + {} = {}".format(argv[1], argv[3], add(a, b)))
 
     elif argv[2] == "-":
-        print("{} - {} = {}".format(argv[1], argv[3], sub(int(argv[1]), int(argv[3]))))
+        print("{} - {} = {}".format(argv[1], argv[3], sub(a, b)))
 
     elif argv[2] == "*":
-        print("{} * {} = {}".format(argv[1], argv[3], mul(int(argv[1]), int(argv[3]))))
+        print("{} * {} = {}".format(argv[1], argv[3], mul(a, b)))
 
     elif argv[2] == "/":
-        print("{} / {} = {}".format(argv[1], argv[3], div(int(argv[1]), int(argv[3]))))
+        print("{} / {} = {}".format(argv[1], argv[3], div(a, b)))
+    else:
+        print("Unknown operator. Available operators: +, -, * and /")
+        exit(1)
 
 
 if __name__ == "__main__":
