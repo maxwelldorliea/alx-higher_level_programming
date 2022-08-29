@@ -2,23 +2,26 @@
 #include <stdlib.h>
 
 /**
- * get_len - get the length of a linkedlist
+ * reverse - reverse a linkedlist
  * @head: head of the linkedlist
- * Return: the length of a linkedlist
+ * Return: the head of the reverse linkedlist
  */
 
-int get_len(listint_t *head)
+listint_t *reverse(listint_t *head)
 {
-	listint_t *tmp = head;
-	int len = 0;
+	listint_t *tmp = head, *prev = NULL, *next;
 
 	while (tmp != NULL)
 	{
-		len++;
-		tmp = tmp->next;
+		next = tmp->next;
+		tmp->next = prev;
+		prev = tmp;
+		tmp = next;
 	}
 
-	return (len);
+	tmp = prev;
+
+	return (prev);
 }
 
 /**
@@ -30,38 +33,33 @@ int get_len(listint_t *head)
 
 int is_palindrome(listint_t **head)
 {
-	listint_t *tmp;
-	int *arr, len, i = 0, j = 0;
+	listint_t *tmp, *fast, *slow, *nhead;
 
 	if (!head)
 		return (-1);
 
-	if (!(*head))
+	if (!(*head) || !(*head))
 		return (1);
-	len = get_len(*head);
-	arr = malloc(sizeof(*arr) * len);
 
+	slow = *head;
+	fast = *head;
+
+	while (slow && fast && fast->next)
+	{
+		slow = slow->next;
+		fast = fast->next->next;
+	}
+
+	nhead = reverse(slow);
 	tmp = *head;
 
-	while (tmp != NULL)
+	while (nhead != NULL)
 	{
-		arr[i] = tmp->n;
-		i++;
-		tmp = tmp->next;
-	}
-	i -= 1;
-	while (i >= j)
-	{
-		if (arr[i] != arr[j])
-		{
-			free(arr);
+		if (nhead->n != tmp->n)
 			return (0);
-		}
-		i--;
-		j++;
+		tmp = tmp->next;
+		nhead = nhead->next;
 	}
-
-	free(arr);
 
 	return (1);
 }
