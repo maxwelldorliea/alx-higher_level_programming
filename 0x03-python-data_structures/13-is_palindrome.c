@@ -1,6 +1,25 @@
 #include "lists.h"
+#include <stdlib.h>
 
+/**
+ * get_len - get the length of a linkedlist
+ * @head: head of the linkedlist
+ * Return: the length of a linkedlist
+ */
 
+int get_len(listint_t *head)
+{
+	listint_t *tmp = head;
+	int len = 0;
+
+	while (tmp != NULL)
+	{
+		len++;
+		tmp = tmp->next;
+	}
+
+	return (len);
+}
 
 /**
  * is_palindrome - check if a linkedlist is a palindrome
@@ -11,41 +30,38 @@
 
 int is_palindrome(listint_t **head)
 {
-	listint_t *prev = NULL, *next = NULL, *nhead = NULL, *tmp;
+	listint_t *tmp;
+	int *arr, len, i = 0, j = 0;
 
 	if (!head)
 		return (-1);
 
 	if (!(*head))
 		return (1);
+	len = get_len(*head);
+	arr = malloc(sizeof(*arr) * len);
 
 	tmp = *head;
 
 	while (tmp != NULL)
 	{
-		add_nodeint_end(&nhead, tmp->n);
+		arr[i] = tmp->n;
+		i++;
 		tmp = tmp->next;
 	}
-
-
-	while (nhead != NULL)
+	i -= 1;
+	while (i >= j)
 	{
-		next = nhead->next;
-		nhead->next = prev;
-		prev = nhead;
-		nhead = next;
-	}
-
-	nhead = prev;
-
-	while (*head != NULL)
-	{
-		if ((*head)->n != nhead->n)
+		if (arr[i] != arr[j])
+		{
+			free(arr);
 			return (0);
-		*head = (*head)->next;
-		nhead = nhead->next;
+		}
+		i--;
+		j++;
 	}
+
+	free(arr);
 
 	return (1);
 }
-
