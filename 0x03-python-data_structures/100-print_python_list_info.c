@@ -22,7 +22,7 @@ void print_python_list_info(PyObject *p)
 	while (i < len)
 	{
 		PyObject *ele = PyList_GetItem(p, i);
-		char *eleName = Py_TYPE(ele)->tp_name;
+		const char *eleName = Py_TYPE(ele)->tp_name;
 		printf("Element %d: %s\n", i, eleName);
 		i++;
 	}
