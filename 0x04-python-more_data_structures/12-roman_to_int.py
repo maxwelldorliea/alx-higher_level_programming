@@ -2,8 +2,6 @@
 
 
 def roman_to_int(roman_string):
-    if roman_string is None:
-        return None
     if not roman_string:
         return 0
     rom_to_int = {
@@ -16,12 +14,16 @@ def roman_to_int(roman_string):
             "M": 1000
             }
 
-    roman_string = roman_string.replace("IV", "IIII").replace("IX", "VIIII")
-    roman_string = roman_string.replace("XL", "XXXX").replace("XC", "LXXXX")
-    roman_string = roman_string.replace("CD", "CCCC").replace("CM", "DCCCC")
+    # roman_string = roman_string.replace("IV", "IIII").replace("IX", "VIIII")
+    # roman_string = roman_string.replace("XL", "XXXX").replace("XC", "LXXXX")
+    # roman_string = roman_string.replace("CD", "CCCC").replace("CM", "DCCCC")
 
     num = 0
-
-    for ch in roman_string:
-        num += rom_to_int[ch]
+    _len = len(roman_string)
+    for i in range(_len):
+        chv = rom_to_int[roman_string[i]]
+        if i != _len - 1 and rom_to_int[roman_string[i + 1]] > chv:
+            num += rom_to_int[roman_string[i + 1]] - chv
+            continue
+        num += chv
     return num
