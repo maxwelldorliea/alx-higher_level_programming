@@ -2,9 +2,6 @@
 
 
 def roman_to_int(roman_string):
-
-    if not roman_string:
-        return 0
     rom_to_int = {
             "I": 1,
             "V": 5,
