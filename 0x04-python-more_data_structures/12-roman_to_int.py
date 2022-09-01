@@ -21,5 +21,7 @@ def roman_to_int(roman_string):
     num = 0
 
     for ch in roman_string:
+        if not rom_to_int.get(ch):
+            return 0
         num += rom_to_int[ch]
     return num
