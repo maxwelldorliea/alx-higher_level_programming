@@ -15,6 +15,13 @@ void print_python_list(PyObject *p)
 	allot = list->allocated;
 
 	printf("[*] Python list info\n");
+
+	if (!PyList_Check(p))
+	{
+		printf("  [ERROR] Invalid List Object\n");
+		return;
+	}
+
 	printf("[*] Size of the Python List = %d\n", size);
 	printf("[*] Allocated = %d\n", allot);
 
@@ -27,6 +34,11 @@ void print_python_list(PyObject *p)
 		{
 			print_python_bytes(list->ob_item[i]);
 			setbuf(stdout, NULL);
+		}
+
+		else if (strcmp(type, "float") == 0) 
+		{
+			print_python_float(list->ob_item[i]);
 		}
 	}
 }
@@ -79,7 +91,17 @@ void print_python_bytes(PyObject *p)
 
 void print_python_float(PyObject *p)
 {
-	(void)p;
-	printf("Float\n");
+	double val;
+
+	printf("[.] float object info\n");
+
+	if (!PyFloat_Check(p))
+	{
+		printf("  [ERROR] Invalid Float Object\n");
+		return;
+	}
+
+	val = PyFloat_AsDouble(p);
+	printf("value: %.2f\n", val);
 	setbuf(stdout, NULL);
 }
