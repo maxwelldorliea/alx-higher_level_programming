@@ -58,9 +58,9 @@ void print_python_bytes(PyObject *p)
 		setbuf(stdout, NULL);
 		return;
 	}
-	s = PyBytes_AsString(p);
-	size = PyBytes_Size(p);
 	bytes = (PyBytesObject *)p;
+	s = bytes->ob_sval;
+	size = ((PyVarObject *)(bytes))->ob_size;
 	printf("  size: %d\n", size);
 	setbuf(stdout, NULL);
 	printf("  trying string: %s\n", s);
@@ -73,7 +73,7 @@ void print_python_bytes(PyObject *p)
 	
 	for (i = 0; i < size; i++)
 	{
-		printf("%02hhx", bytes->ob_sval[i]);
+		printf("%02hhx", s[i]);
 		setbuf(stdout, NULL);
 		if (i == (size - 1))
 		{
@@ -101,7 +101,7 @@ void print_python_float(PyObject *p)
 		return;
 	}
 
-	val = PyFloat_AsDouble(p);
+	val = ((PyFloatObject *)p)->ob_fval;
 	printf("value: %.2f\n", val);
 	setbuf(stdout, NULL);
 }
