@@ -65,9 +65,9 @@ class SinglyLinkedList:
         h = node
         s = node.next_node
 
-        #while h:
-         #   while s:
-          #      if h.data > s.data:
-           #         h.data, s.data = h.data, s.data
-            #    s = s.next_node
-            #h = h.next_node
+        while h:
+            while s:
+                if h.data > s.data:
+                    h.data, s.data = h.data, s.data
+                s = s.next_node
+            h = h.next_node
