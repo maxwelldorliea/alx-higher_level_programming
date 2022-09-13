@@ -7,4 +7,6 @@
 class Square:
     """creates a new type of type  Square."""
 
-    __size = 0
+    def __init__(self, size):
+        """Initialize the square type."""
+        self.__size = size
