@@ -93,7 +93,6 @@ class Square:
     def __str__(self):
         """Print the a physical representation of the square."""
         if not self.size:
-            print()
             return ""
         print('\n' * self.__position[1], end='')
         for i in range(self.size):
