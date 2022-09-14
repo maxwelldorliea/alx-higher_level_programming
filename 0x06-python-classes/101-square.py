@@ -80,7 +80,7 @@ class Square:
             print(s)
 
 
-    def __str__(self):
+    def ___str__(self):
         """Print the a physical representation of the square."""
         if not self.size:
             return '\n'
@@ -90,3 +90,16 @@ class Square:
             out += '#' * self.size + '\n'
         return out[:len(out) - 1]
             
+    def __str__(self):
+        """Print the a physical representation of the square."""
+        if not self.size:
+            print()
+            return ""
+        print('\n' * self.__position[1], end='')
+        for i in range(self.size):
+            s = '#' * self.size
+            print(' ' * self.__position[0], end='')
+            print(s, end="")
+            if i != self.size - 1:
+                print()
+        return ""
