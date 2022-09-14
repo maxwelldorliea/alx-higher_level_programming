@@ -79,26 +79,12 @@ class Square:
             print(' ' * self.__position[0], end='')
             print(s)
 
-
-    def ___str__(self):
+    def __str__(self):
         """Print the a physical representation of the square."""
         if not self.size:
-            return '\n'
+            return ''
         out = '\n' * self.__position[1]
         for i in range(self.size):
             out += ' ' * self.__position[0]
             out += '#' * self.size + '\n'
         return out[:len(out) - 1]
-            
-    def __str__(self):
-        """Print the a physical representation of the square."""
-        if not self.size:
-            return ""
-        print('\n' * self.__position[1], end='')
-        for i in range(self.size):
-            s = '#' * self.size
-            print(' ' * self.__position[0], end='')
-            print(s, end="")
-            if i != self.size - 1:
-                print()
-        return ""
