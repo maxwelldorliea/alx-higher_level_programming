@@ -2,6 +2,7 @@
 
 """Create a new type of type Node."""
 
+
 class Node:
     """Create a new type of type Node."""
 
@@ -14,7 +15,7 @@ class Node:
             raise TypeError("next_node must be a Node object")
         self.__data = data
         self.__next_node = next_node
-    
+
     @property
     def data(self):
         """Get the value data."""
@@ -35,39 +36,43 @@ class Node:
     @next_node.setter
     def next_node(self, value):
         """Set the next node."""
-        if not value is None and not isinstance(value, Node):
+        if value is not None and not isinstance(value, Node):
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
+
 """Create an object of type SinglyLinkedList."""
+
+
 class SinglyLinkedList:
     """Create an object of type SinglyLinkedList."""
 
     def __init__(self):
         """Initialize SinglyLinkedList."""
         self.__head = None
-    
+
     def __str__(self):
         """Print str representation of singlelinkedlist."""
         tmp = self.__head
         out = ''
         while tmp:
-            out += str(tmp.data) + '\n'
-            print(tmp.data)
+            out += str(tmp.data)
+            out += '\n'
             tmp = tmp.next_node
-        return out
-    
+        return out[:len(out) - 1]
+
     def sorted_insert(self, value):
         """Insert in a sorted order."""
-        h = self.__head
-        node = Node(value, h);
-        h = self.__head
-        h = node
-        s = node.next_node
+        node = Node(value)
+        if not self.__head:
+            self.__head = node
+        elif self.__head.data > value:
+            node.next_node = self.__head
+            self.__head = node
+        else:
+            h = self.__head
 
-        while h:
-            while s:
-                if h.data > s.data:
-                    h.data, s.data = h.data, s.data
-                s = s.next_node
-            h = h.next_node
+            while h.next_node and h.next_node.data < value:
+                h = h.next_node
+            node.next_node = h.next_node
+            h.next_node = node
