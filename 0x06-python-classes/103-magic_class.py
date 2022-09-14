@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """Create object of type MagicClass."""
 
+import math
+
 
 class MagicClass:
     """Represent MagicClass."""
@@ -14,8 +16,8 @@ class MagicClass:
 
     def area(self):
         """Compute the area of the MagicClass."""
-        return self.__radius ** 2 * math.pi
+        return (self.__radius ** 2 * math.pi)
 
     def circumference(self):
         """Compute the circumference of the MagicClass."""
-        return math.pi * 2 * self.__radius
+        return (2 math.pi * self.__radius)
