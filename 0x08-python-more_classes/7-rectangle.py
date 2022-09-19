@@ -68,7 +68,7 @@ class Rectangle:
             return
         i = 0
         while i < self.__height:
-            s = Rectangle.print_symbol * self.__width
+            s = str(self.print_symbol) * self.__width
             print(s)
             i += 1
 
@@ -79,7 +79,7 @@ class Rectangle:
         i = 0
         out = ""
         while i < self.__height:
-            out += str(Rectangle.print_symbol) * self.__width
+            out += str(self.print_symbol) * self.__width
             out += "\n"
             i += 1
         return out[:len(out) - 1]
