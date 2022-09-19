@@ -6,7 +6,7 @@
 class Rectangle:
     """Represent a Rectangle."""
 
-    def __init__(self, width, height) -> None:
+    def __init__(self, width=0, height=0) -> None:
         """Initialize the an object Rectangle type."""
         if not type(width) is int:
             raise TypeError("width must be an integer")
