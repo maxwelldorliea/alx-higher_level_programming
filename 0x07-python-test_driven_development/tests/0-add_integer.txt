@@ -1,0 +1,76 @@
+	Add Integer
+=============================
+   Using ```add_integer```
+-----------------------------
+
+# importing add_integer from 0-add_integer
+>>> add_integer = __import__('0-add_integer').add_integer
+
+
+>>> add_integer(4, 7)
+11
+
+>>> add_integer(5, -2)
+3
+
+>>> add_integer(7, "bb")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+
+>>> add_integer("4", 40)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+
+>>> add_integer(-1, 4j)
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+
+>>> add_integer(4j, 9)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+
+>>> add_integer(9)
+107
+
+
+>>> add_integer(2.0, 8.0)
+10
+
+>>> add_integer(3.4, 6.2)
+9
+
+
+>>> add_integer(None)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+
+>>> add_integer()
+Traceback (most recent call last):
+...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+>>> add_integer(10, 1 + float("inf"))
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+
+
+>>> add_integer(float("inf"), 5)
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(1, float('nan'))
+Traceback (most recent call last):
+ ...
+ValueError: cannot convert float NaN to integer

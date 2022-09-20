@@ -1,0 +1,40 @@
+	Text Indentation Module
+====================================
+      Using ```text_indentation```
+------------------------------------
+
+
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+
+>>> text_indentation('Come let you. Over there? Yes')
+Come let you.
+<BLANKLINE>
+Over there?
+<BLANKLINE>
+Yes
+
+
+>>> text_indentation("Yes?We can: do this.")
+Yes?
+<BLANKLINE>
+We can:
+<BLANKLINE>
+do this.
+<BLANKLINE>
+
+
+>>> text_indentation(10)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+
+>>> text_indentation()
+Traceback (most recent call last):
+...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+>>> text_indentation("Come on buddy")
+Come on buddy
