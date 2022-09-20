@@ -2,20 +2,20 @@
 
 """N Queen Module."""
 
-from sys import argv
+import sys
 
 
 def n_queen():
     """Solve n queen puzzle."""
-    if len(argv) != 2:
+    if len(sys.argv) != 2:
         print("Usage: nqueens N")
-        return 1
+        sys.exit(1)
 
     try:
-        n = int(argv[1])
+        n = int(sys.argv[1])
     except ValueError:
         print("N must be a number")
-        return 1
+        sys.exit(1)
 
     if n < 4:
         print("N must be at least 4")
