@@ -20,10 +20,10 @@ def matrix_divided(matrix, div):
         (list of list of int/float): modified matrix.
     """
     msg = "matrix must be a matrix (list of lists) of integers/floats"
-    
+
     if not matrix or not type(matrix) is list:
         raise TypeError(msg)
-    
+
     if not all(isinstance(ele, list) for ele in matrix):
         raise TypeError(msg)
 

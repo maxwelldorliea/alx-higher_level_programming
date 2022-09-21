@@ -46,9 +46,6 @@ def matrix_mul(m_a, m_b):
     if not all(first_len_b == len(arr) for arr in m_b):
         raise TypeError("each row of m_b must be of the same size")
 
-    #if not all(len(f) == len(s) for f, s in zip(m_a, m_b)):
-     #   raise ValueError("m_a and m_b can't be multiplied")
-
     N, M, P = len(m_a), len(m_a[0]), len(m_b[0])
 
     if M != len(m_b):
