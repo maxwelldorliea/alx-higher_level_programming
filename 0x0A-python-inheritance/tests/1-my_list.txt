@@ -1,0 +1,29 @@
+
+		My List Module
+==================================================
+	   Using ```print_sorted```
+--------------------------------------------------
+
+
+
+>>> MyList = __import__('1-my_list').MyList
+
+>>> mylist = MyList()
+>>> mylist.print_sorted()
+[]
+
+>>> mylist = MyList()
+>>> mylist.append(9)
+>>> mylist.append(7)
+>>> mylist.append(5)
+>>> mylist.append(8)
+>>> mylist.print_sorted()
+[5, 7, 8, 9]
+
+>>> mylist = MyList()
+>>> mylist.append(1)
+>>> mylist.append(5)
+>>> mylist.append(9)
+>>> mylist.append(16)
+>>> mylist.print_sorted()
+[1, 5, 9, 16]
