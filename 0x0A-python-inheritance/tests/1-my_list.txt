@@ -27,3 +27,19 @@
 >>> mylist.append(16)
 >>> mylist.print_sorted()
 [1, 5, 9, 16]
+
+>>> mylist = MyList()
+>>> mylist.append(1)
+>>> mylist.append(2)
+>>> mylist.append(3)
+>>> mylist.append(4)
+>>> mylist.print_sorted()
+[1, 2, 3, 4]
+
+>>> mylist = MyList()
+>>> mylist.append(9)
+>>> mylist.append(8)
+>>> mylist.append(7)
+>>> mylist.append(6)
+>>> mylist.print_sorted()
+[6, 7, 8 , 9]
