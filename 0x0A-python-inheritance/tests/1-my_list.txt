@@ -42,4 +42,4 @@
 >>> mylist.append(7)
 >>> mylist.append(6)
 >>> mylist.print_sorted()
-[6, 7, 8 , 9]
+[6, 7, 8, 9]
