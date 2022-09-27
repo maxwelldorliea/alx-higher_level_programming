@@ -45,6 +45,16 @@ True
 [1, 2, 3, 4]
 
 >>> mylist = MyList()
+>>> mylist.append(6)
+>>> mylist.append(7)
+>>> mylist.append(8)
+>>> mylist.append(9)
+>>> print(mylist)
+[6, 7, 8, 9]
+>>> mylist.print_sorted()
+[6, 7, 8, 9]
+
+>>> mylist = MyList()
 >>> mylist.append(9)
 >>> mylist.append(8)
 >>> mylist.append(7)
