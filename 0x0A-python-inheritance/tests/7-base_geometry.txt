@@ -7,8 +7,17 @@ Using ```integer_validator```
 
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
->>> bg.integer_validator("my_int", 12)
+>>> bg.area()
+Traceback (most recent call last):
+ ...
+Exception: area() is not implemented
 
+>>> bg.area(1)
+Traceback (most recent call last):
+...
+TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
+
+>>> bg.integer_validator("my_int", 12)
 
 >>> bg.integer_validator("come", 0)
 Traceback (most recent call last):
@@ -20,10 +29,27 @@ Traceback (most recent call last):
 ...
 ValueError: hello must be greater than 0
 
->>> bg.integer_validator("not int", "alx")
+>>> bg.integer_validator("str", "alx")
 Traceback (most recent call last):
 ...
-TypeError: not int must be an integer
+TypeError: str must be an integer
+
+
+Testing for non-integer types:
+>>> bg.integer_validator("bool", True)
+Traceback (most recent call last):
+...
+TypeError: bool must be an integer
+>>> bg.integer_validator("float", 10.5)
+Traceback (most recent call last):
+...
+TypeError: float must be an integer
+
+
+>>> bg.integer_validator("complex", complex(11, 21))
+Traceback (most recent call last):
+...
+TypeError: complex must be an integer
 
 >>> bg.integer_validator()
 Traceback (most recent call last):
@@ -35,3 +61,8 @@ TypeError: BaseGeometry.integer_validator() missing 2 required positional argume
 Traceback (most recent call last):
 ...
 TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
+>>> bg.integer_validator("integer", 1, 2)
+Traceback (most recent call last):
+...
+TypeError: BaseGeometry.integer_validator() takes 3 positional arguments but 4 were given
