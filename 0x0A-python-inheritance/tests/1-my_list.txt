@@ -7,6 +7,8 @@
 
 
 >>> MyList = __import__('1-my_list').MyList
+>>> issubclass(MyList, list)
+True
 
 >>> mylist = MyList()
 >>> mylist.print_sorted()
@@ -17,6 +19,8 @@
 >>> mylist.append(7)
 >>> mylist.append(5)
 >>> mylist.append(8)
+>>> print(mylist)
+[9, 7, 5, 8]
 >>> mylist.print_sorted()
 [5, 7, 8, 9]
 
@@ -25,6 +29,8 @@
 >>> mylist.append(5)
 >>> mylist.append(9)
 >>> mylist.append(16)
+>>> print(mylist)
+[1, 5, 9, 16]
 >>> mylist.print_sorted()
 [1, 5, 9, 16]
 
@@ -33,6 +39,8 @@
 >>> mylist.append(2)
 >>> mylist.append(3)
 >>> mylist.append(4)
+>>> print(mylist)
+[1, 2, 3, 4]
 >>> mylist.print_sorted()
 [1, 2, 3, 4]
 
@@ -41,5 +49,7 @@
 >>> mylist.append(8)
 >>> mylist.append(7)
 >>> mylist.append(6)
+>>> print(mylist)
+[9, 8, 7, 6]
 >>> mylist.print_sorted()
 [6, 7, 8, 9]
