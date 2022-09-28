@@ -37,8 +37,6 @@ def main():
 
             if i == 10:
                 print_stats(total_file_size, status_dict)
-                status_dict = {}
-                total_file_size = 0
                 i = 0
         print_stats(total_file_size, status_dict)
     except KeyboardInterrupt:
