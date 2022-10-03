@@ -5,6 +5,7 @@ import json
 import csv
 import turtle
 
+
 class Base:
     """Serve as the base class of all classes."""
 
@@ -68,6 +69,7 @@ class Base:
             return instances
         except Exception:
             return []
+
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """Create csv file from list of objects."""
