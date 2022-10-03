@@ -21,7 +21,7 @@ class Base:
     def to_json_string(list_dictionaries):
         """Return json format for list of dict."""
         if not list_dictionaries:
-            return []
+            return "[]"
         return json.dumps(list_dictionaries)
 
     @classmethod
