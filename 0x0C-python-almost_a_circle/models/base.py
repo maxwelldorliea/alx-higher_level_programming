@@ -67,3 +67,34 @@ class Base:
             return instances
         except Exception:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Save list of object to csv file."""
+        ld = []
+        with open(cls.__name__ + ".csv", "w", encoding="utf-8") as f:
+            if list_objs:
+                for obj in list_objs:
+                    if cls.__name__ == 'Rectangle':
+                        ld.append([
+                            obj.id, obj.width, obj.height, obj.x, obj.y])
+                    if cls.__name__ == 'Square':
+                        ld.append([obj.id, obj.size, obj.x, obj.y])
+            writer = csv.writer(f)
+            for row in ld:
+                writer.writerow(row)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Convert csv file to an object."""
+        try:
+            with open(cls.__name__ + ".csv", "r") as f:
+                ld = []
+                reader = csv.DictReader(f)
+                for row in reader:
+                    for key, val in row.items():
+                        row[key] = int(val)
+                ld.append(row)
+                return [cls.create(**item) for item in ld]
+        except FileNotFoundError:
+            return []
