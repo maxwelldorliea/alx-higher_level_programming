@@ -2,7 +2,8 @@
 
 """Base Class Module."""
 import json
-
+import csv
+import turtle
 
 class Base:
     """Serve as the base class of all classes."""
@@ -67,34 +68,69 @@ class Base:
             return instances
         except Exception:
             return []
-
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        """Save list of object to csv file."""
-        ld = []
-        with open(cls.__name__ + ".csv", "w", encoding="utf-8") as f:
-            if list_objs:
+        """Create csv file from list of objects."""
+        with open(cls.__name__ + ".csv", "w", newline="") as csvfile:
+            if list_objs is None or list_objs == []:
+                csvfile.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
                 for obj in list_objs:
-                    if cls.__name__ == 'Rectangle':
-                        ld.append([
-                            obj.id, obj.width, obj.height, obj.x, obj.y])
-                    if cls.__name__ == 'Square':
-                        ld.append([obj.id, obj.size, obj.x, obj.y])
-            writer = csv.writer(f)
-            for row in ld:
-                writer.writerow(row)
+                    writer.writerow(obj.to_dictionary())
 
     @classmethod
     def load_from_file_csv(cls):
-        """Convert csv file to an object."""
+        """Convert csv file to list of objects."""
         try:
-            with open(cls.__name__ + ".csv", "r") as f:
-                ld = []
-                reader = csv.DictReader(f)
-                for row in reader:
-                    for key, val in row.items():
-                        row[key] = int(val)
-                ld.append(row)
-                return [cls.create(**item) for item in ld]
-        except FileNotFoundError:
+            with open(cls.__name__ + ".csv", "r", newline="") as csvfile:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
+                list_dicts = [dict([k, int(v)] for k, v in d.items())
+                              for d in list_dicts]
+                return [cls.create(**d) for d in list_dicts]
+        except IOError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Draw Rectangles and Squares using the tkle module."""
+        tk = turtle.Turtle()
+        tk.screen.bgcolor("#de912c")
+        tk.pensize(3)
+        tk.shape("turtle")
+
+        tk.color("#f129f2")
+        for rect in list_rectangles:
+            tk.showturtle()
+            tk.up()
+            tk.goto(rect.x, rect.y)
+            tk.down()
+            for _ in range(2):
+                tk.forward(rect.width)
+                tk.left(90)
+                tk.forward(rect.height)
+                tk.left(90)
+            tk.hideturtle()
+
+        tk.color("#b7e328")
+        for sq in list_squares:
+            tk.showturtle()
+            tk.up()
+            tk.goto(sq.x, sq.y)
+            tk.down()
+            for _ in range(2):
+                tk.forward(sq.width)
+                tk.left(90)
+                tk.forward(sq.height)
+                tk.left(90)
+            tk.hideturtle()
+
+        turtle.exitonclick()
