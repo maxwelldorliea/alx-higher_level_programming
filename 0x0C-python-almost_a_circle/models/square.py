@@ -24,6 +24,7 @@ class Square(Rectangle):
     def size(self, value):
         """Set the value of the instance field size."""
         self.width = value
+        self.height = value
 
     def update(self, *args, **kwargs):
         """Update the field of an object with either arg variable or kwargs."""
