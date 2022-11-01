@@ -1,5 +1,5 @@
 -- displays the average temperature (Fahrenheit) by city ordered by temperature (descending)
-USE test;
+USE hbtn_0c_0;
 SET AUTOCOMMIT=0; 
 SOURCE ./temperatures.sql;
 COMMIT;
