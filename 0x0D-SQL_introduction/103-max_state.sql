@@ -1,5 +1,5 @@
 -- displays the max temperature of each state (ordered by State name)
-USE test;
+USE hbtn_0c_0;
 SET AUTOCOMMIT=0; 
 SOURCE ./temperatures.sql;
 COMMIT;
