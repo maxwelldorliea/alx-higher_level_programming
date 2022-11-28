@@ -1,10 +1,10 @@
 #!/usr/bin/node
 
-exports.callMeMoby = (x) => {
+exports.callMeMoby = function (x, printXTime) {
   let i = 0;
 
   while (i < x) {
-    console.log('C is fun');
+    printXTime();
     i++;
   }
 };
