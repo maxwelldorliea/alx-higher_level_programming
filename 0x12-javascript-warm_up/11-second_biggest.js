@@ -9,6 +9,8 @@ function secondMax (arr) {
     return 0;
   }
 
+  arr = arr.map((it) => parseInt(it));
+
   for (const i in arr) {
     if (arr[i] > maxVal) {
       maxVal = arr[i];
