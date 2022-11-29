@@ -12,7 +12,7 @@ class Square extends Rectangle {
     if (c === undefined) {
       c = 'X';
     }
-    while (i < this.width) {
+    while (i < this.height) {
       let j = 0;
       while (j < this.width) {
         process.stdout.write(c);
