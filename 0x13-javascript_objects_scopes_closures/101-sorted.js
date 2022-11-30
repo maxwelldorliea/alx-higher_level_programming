@@ -4,7 +4,7 @@ const dict = require('./101-data').dict;
 const newDict = (dict) => {
   const newDict = {};
   for (const k in dict) {
-    if (!Object.hasOwn(newDict, dict[k])) {
+    if (newDict[dict[k]] === undefined) {
       newDict[dict[k]] = [];
     }
     newDict[dict[k]].push(k);
