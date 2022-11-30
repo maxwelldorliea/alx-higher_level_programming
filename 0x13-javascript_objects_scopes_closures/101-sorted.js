@@ -7,8 +7,7 @@ const newDict = (dict) => {
     if (!Object.hasOwn(newDict, dict[k])) {
       newDict[dict[k]] = [];
     }
-      const list = newDict[dict[k]];
-      list.push(k);
+    newDict[dict[k]].push(k);
   }
 
   return newDict;
