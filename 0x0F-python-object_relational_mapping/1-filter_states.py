@@ -11,7 +11,10 @@ def main():
             host='localhost', port=3306, user=arg[1], passwd=arg[2], db=arg[3])
 
     cur = conn.cursor()
-    cur.execute("SELECT * FROM states WHERE states.name LIKE 'N%' ORDER BY states.id")
+    cur.execute("""
+    SELECT * FROM states WHERE BINARY name
+    LIKE UPPER('N%') ORDER BY states.id
+    """)
 
     for res in cur.fetchall():
         print(res)
