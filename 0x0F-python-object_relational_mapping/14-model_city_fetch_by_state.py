@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
-"""Lists all State objects from the database hbtn_0e_6_usa."""
+"""Prints all City objects from the database hbtn_0e_14_usa:"""
+
 from sqlalchemy.orm.session import Session
 from model_state import Base, State
 from model_city import City
