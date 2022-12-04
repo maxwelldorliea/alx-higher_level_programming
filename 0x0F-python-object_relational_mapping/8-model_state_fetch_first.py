@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
-"""Lists all State objects from the database hbtn_0e_6_usa."""
+"""Prints the first State object from the database hbtn_0e_6_usa."""
+
 from sqlalchemy.orm.session import Session
 from model_state import Base, State
 from sqlalchemy import create_engine
@@ -12,7 +13,7 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     session = Session(engine)
 
-    state = session.query(State).first()
+    state = session.query(State).order_by(State.id).first()
     if state:
         print(f'{state.id}: {state.name}')
     else:
