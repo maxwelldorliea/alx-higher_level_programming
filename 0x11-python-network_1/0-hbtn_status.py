@@ -10,10 +10,7 @@ def main():
         content = res.read()
         tc_type = type(content)
         utf8 = content.decode()
-        output = f"""Body response:
-    - type: {tc_type}
-    - content: {content}
-    - utf8 content: {utf8}"""
+        output = f"Body response:\n\t- type: {tc_type}\n\t- content: {content}\n\t- utf8 content: {utf8}"
 
     print(output)
 
