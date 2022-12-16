@@ -9,7 +9,7 @@ def main() -> None:
     """Parameter, and finally displays the body of the response."""
     data = {'email': sys.argv[2]}
     res = requests.post(sys.argv[1], data=data)
-    print('Your email is:', res.text)
+    print(res.text)
 
 
 if __name__ == '__main__':
