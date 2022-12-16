@@ -14,8 +14,8 @@ def main() -> None:
 
     for obj in objs:
         commit = obj['commit']
-        committer = commit['committer']
-        print(f"{obj.get('sha')}:", committer.get('name'))
+        author = commit['author']
+        print(f"{obj.get('sha')}:", author.get('name'))
 
 
 if __name__ == '__main__':
