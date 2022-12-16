@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 
 """Fetch ALX SE Status Module."""
-from urllib import request
+import urllib.request
 
 
 def main():
     """Fetch https://alx-intranet.hbtn.io/status."""
-    with request.urlopen('https://alx-intranet.hbtn.io/status') as res:
+    with urllib.request.urlopen('https://alx-intranet.hbtn.io/status') as res:
         content = res.read()
         tc_type = type(content)
         utf8 = content.decode()
