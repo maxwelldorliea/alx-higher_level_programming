@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """Find Peek Module."""
 
+
 def find_peak(arr):
     """finds a peak in a list of unsorted integer."""
-    l = 0
+    low = 0
     size = len(arr)
     r = size - 1
 
@@ -15,14 +16,10 @@ def find_peak(arr):
         return arr[0]
     if arr[size - 1] >= arr[size - 2]:
         return arr[size - 1]
-    while l < r:
-        m = l + (r - l) // 2
-
-        if arr[m] == arr[m - 1]:
-            l += 1
-            continue
-        if m + 1 < len(arr) - 1 and arr[m] < arr[m + 1]:
-            l = m + 1
+    while low < r:
+        m = low + (r - low) // 2
+        if arr[m] <= arr[m + 1]:
+            low = m + 1
         else:
             r = m
-    return arr[l] if l < len(arr) else arr[l - 1]
+    return arr[low] if low < len(arr) else arr[low - 1]
