@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Request ALX SE MOdule."""
-from json.decoder import JSONDecodeError
 import requests
 import sys
 
@@ -17,7 +16,7 @@ def main() -> None:
             print('No result')
         else:
             print(f"[{obj.get('id')}] {obj.get('name')}")
-    except JSONDecodeError:
+    except Exception:
         print("Not a valid JSON")
 
 
