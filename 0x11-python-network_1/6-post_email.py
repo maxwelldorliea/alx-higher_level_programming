@@ -5,7 +5,7 @@ import sys
 
 
 def main() -> None:
-    """Sends a POST request to the passed URL with the email as a."""
+    """Send a POST request to the passed URL with the email as a."""
     """Parameter, and finally displays the body of the response."""
     data = {'email': sys.argv[2]}
     res = requests.post(sys.argv[1], data)
