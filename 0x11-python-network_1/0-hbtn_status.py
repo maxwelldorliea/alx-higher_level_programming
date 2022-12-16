@@ -7,11 +7,12 @@ import urllib.request
 def main():
     """Fetch https://alx-intranet.hbtn.io/status."""
     with urllib.request.urlopen('https://alx-intranet.hbtn.io/status') as res:
-        content = res.read()
-        tc_type = type(content)
-        utf8 = content.decode()
-        output = f""""Body response:\n\t- type: {tc_type}
-\t- content: {content}\n\t- utf8 content: {utf8}"""
+        byte = res.read()
+        content = f"- content: {byte}"
+        tc_type = f"- type: {type(content)}"
+        utf8 = f"- utf8 content: {byte.decode()}"
+        output = "Body response:\n\t{}\n\t{}\n\t{}".format(
+                content, tc_type, utf8)
 
     print(output)
 
