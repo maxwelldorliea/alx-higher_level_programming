@@ -8,8 +8,9 @@ def main() -> None:
     """Print all commits by: `<sha>: <author name>` (one by line)."""
     user = sys.argv[2]
     repo = sys.argv[1]
+    query = {'per_page': 10}
     url = f'https://api.github.com/repos/{user}/{repo}/commits'
-    res = requests.get(url)
+    res = requests.get(url, params=query)
     objs = res.json()
 
     for obj in objs:
