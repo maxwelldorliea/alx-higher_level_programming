@@ -5,7 +5,7 @@ const argv = require('process').argv;
 
 request(argv[2], (err, res, body) => {
   if (err) {
-    throw err;
+    console.log(err);
   }
   const data = JSON.parse(body).results;
   let count = 0;
