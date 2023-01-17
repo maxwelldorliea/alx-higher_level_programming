@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 const request = require('request');
-const fs = require('fs')
+const fs = require('fs');
 const argv = require('process').argv;
 
 request(argv[2], (err, res, body) => {
