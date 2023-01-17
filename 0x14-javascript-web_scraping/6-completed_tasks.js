@@ -8,13 +8,15 @@ request(argv[2], (err, res, body) => {
     throw err;
   }
   let data = JSON.parse(body);
-  const obj = {};
-  let n = 1;
+  const objs = {};
   data = data.filter(({ completed }) => completed === true);
-  while (n <= 10) {
-    const userTodos = data.filter(({ userId }) => userId === n);
-    obj[n] = userTodos.length;
-    n++;
+  for (const UserObj of data) {
+    const userId = UserObj.userId;
+    if (objs[userId]) {
+      objs[userId] += 1;
+    } else {
+      objs[userId] = 1;
+    }
   }
-  console.log(obj);
+  console.log(objs);
 });
